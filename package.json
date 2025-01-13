@@ -6,10 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "prepare": "husky install",
-    "commit": "git-cz",
-    "lint-staged": "lint-staged"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
@@ -21,13 +18,9 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
     "@types/node": "^20.11.25",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.5.1",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.3.0",
     "sass": "^1.71.1",
     "typescript": "~5.4.0",
     "unplugin-auto-import": "^0.17.5",
@@ -35,9 +28,5 @@
     "vite": "^6.0.5",
     "vite-plugin-vue-devtools": "^7.6.8",
     "vue-tsc": "^2.0.6"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,vue}": [],
-    "*.{css,scss,less,html,md,json}": []
-  }
+}
 }
