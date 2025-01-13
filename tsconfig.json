@@ -21,9 +21,9 @@
     "skipLibCheck": true
   },
   "references": [
-    {
-      "path": "./tsconfig.node.json",
-      "composite": false
-    }
+    // {
+    //   "path": "./tsconfig.node.json",
+    //   "composite": true
+    // }
   ]
 }

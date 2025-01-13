@@ -30,7 +30,7 @@ import { ref } from 'vue'
 import { ElUpload, ElButton, ElCard, ElTable, ElTableColumn } from 'element-plus'
 import * as XLSX from 'xlsx'
 
-const excelData = ref<{ headers: string[]; rows: any[][] } | null>(null)
+const excelData = ref<any>(null)
 
 const beforeUpload = (file: File) => {
   const reader = new FileReader()
@@ -40,13 +40,15 @@ const beforeUpload = (file: File) => {
     const firstSheetName = workbook.SheetNames[0]
     const worksheet = workbook.Sheets[firstSheetName]
     const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 })
-    
-    // 只保留有效数据
-    const validData = jsonData.filter((row: any[]) => row.some(cell => cell !== null && cell !== ''))
-    const headers = validData[0] || []
-    const rows = validData.slice(1)
 
-    excelData.value = { headers, rows }
+    // 只保留有效数据
+    // const validData = jsonData.filter((row: any[]) =>
+    //   row.some((cell) => cell !== null && cell !== '')
+    // )
+    // const headers = validData[0] || []
+    // const rows = validData.slice(1)
+
+    // excelData.value = { headers, rows }
   }
   reader.readAsArrayBuffer(file)
   return false // Prevent automatic upload
@@ -76,4 +78,4 @@ const exportExcel = () => {
     margin-bottom: 20px;
   }
 }
-</style> 
+</style>

@@ -17,27 +17,26 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElUpload, ElButton, ElImage, ElCard } from 'element-plus'
+import { ElUpload, ElButton, ElImage, ElCard, type UploadFile } from 'element-plus'
 import { useImage } from '@/composables/useImage'
 
 const { imageFile, loadImage } = useImage()
 const compressedImageUrl = ref<string | null>(null)
 
-const beforeUpload = (file: File) => {
-  loadImage(file).then((img) => {
+const beforeUpload = (file: UploadFile  ) => {
+  loadImage(file as unknown as File).then((img) => {
     imageFile.value = img
   })
   return false // Prevent automatic upload
 }
-
-const handleChange = (file: File) => {
+  
+const handleChange = (file: UploadFile) => {
   // Handle file change if needed
 }
 
 const compressImage = () => {
   if (imageFile.value) {
     // Perform image compression logic here
-    // For demonstration, we will just set the image URL
     compressedImageUrl.value = imageFile.value.url
   }
 }

@@ -56,7 +56,7 @@
 
 <script setup lang="ts">
 import { Check } from '@element-plus/icons-vue'
-
+console.log('11232',11232)
 interface Tool {
   name: string
   path: string
