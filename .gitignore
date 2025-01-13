@@ -1,0 +1,24 @@
+# Dependencies
+node_modules
+
+# Build
+dist
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Environment
+.env
+
+
+# TypeScript
+
+# Vue
+auto-imports.d.ts
+components.d.ts
+
+# OS
+.DS_Store
+Thumbs.db

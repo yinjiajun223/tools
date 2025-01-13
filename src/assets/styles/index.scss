@@ -1,0 +1,13 @@
+// @import './variables.scss';
+@use './variables.scss';
+
+// 全局样式
+:root {
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --accent-color: #{$accent-color};
+  --background-color: #{$background-color};
+  --text-color: #{$text-color};
+  --card-background: #{$card-background};
+  --shadow-color: #{$shadow-color};
+}

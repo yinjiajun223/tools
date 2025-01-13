@@ -1,77 +1,13 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>在线工具箱</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <div class="container home-container">
-        <header class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">在线工具箱</h1>
-                <p class="hero-subtitle">简单、快捷、高效的在线工具集合</p>
-                <div class="hero-decoration">
-                    <i class="fas fa-tools decoration-icon"></i>
-                </div>
-            </div>
-        </header>
-        
-        <div class="tools-grid">
-            <!-- 图片压缩工具卡片 -->
-            <a href="image-compressor.html" class="tool-card">
-                <div class="tool-icon">
-                    <i class="fas fa-image"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>图片压缩工具</h3>
-                    <p>快速压缩图片文件大小，支持PNG、JPG格式</p>
-                    <div class="tool-features">
-                        <span><i class="fas fa-check"></i> 支持拖放</span>
-                        <span><i class="fas fa-check"></i> 在线预览</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- PDF工具卡片 -->
-            <div class="tool-card coming-soon">
-                <div class="tool-icon">
-                    <i class="fas fa-file-pdf"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>PDF工具</h3>
-                    <p>PDF转换、合并、分割等多功能工具</p>
-                    <div class="coming-soon-badge">即将推出</div>
-                </div>
-            </div>
-
-            <!-- 代码格式化工具卡片 -->
-            <div class="tool-card coming-soon">
-                <div class="tool-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>代码格式化</h3>
-                    <p>支持多种编程语言的代码美化工具</p>
-                    <div class="coming-soon-badge">即将推出</div>
-                </div>
-            </div>
-
-            <!-- 文本处理工具卡片 -->
-            <div class="tool-card coming-soon">
-                <div class="tool-icon">
-                    <i class="fas fa-text-width"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>文本处理</h3>
-                    <p>文本格式转换、加密解密等功能</p>
-                    <div class="coming-soon-badge">即将推出</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html> 
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>在线工具平台</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
