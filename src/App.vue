@@ -8,6 +8,8 @@
 import { ElConfigProvider } from 'element-plus'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
+
+console.log('1',1)
 </script>
 
 <style></style>
