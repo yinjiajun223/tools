@@ -56,7 +56,6 @@
 
 <script setup lang="ts">
 import { Check } from '@element-plus/icons-vue'
-console.log('11232',11232)
 interface Tool {
   name: string
   path: string
@@ -74,7 +73,7 @@ const tools: Tool[] = [
     title: '图片压缩工具',
     description: '快速压缩图片文件大小，支持PNG、JPG格式',
     icon: 'Picture',
-    features: ['支持拖放', '在线预览'],
+    features: ['支持拖放', '在线预览']
   },
   {
     name: 'excelTools',
@@ -82,7 +81,7 @@ const tools: Tool[] = [
     title: 'Excel解析工具',
     description: '解析Excel文件，支持数据处理和导出',
     icon: 'Document',
-    features: ['支持拖放', '在线编辑'],
+    features: ['支持拖放', '在线编辑']
   },
   {
     name: 'pdfTools',
@@ -90,7 +89,7 @@ const tools: Tool[] = [
     title: 'PDF工具',
     description: 'PDF转换、合并、分割等多功能工具',
     icon: 'Files',
-    comingSoon: true,
+    comingSoon: true
   },
   {
     name: 'codeFormatter',
@@ -98,8 +97,8 @@ const tools: Tool[] = [
     title: '代码格式化',
     description: '支持多种编程语言的代码美化工具',
     icon: 'Edit',
-    comingSoon: true,
-  },
+    comingSoon: true
+  }
 ]
 </script>
 
@@ -142,6 +141,7 @@ const tools: Tool[] = [
   overflow: hidden;
   transition: all 0.3s ease;
   border: none;
+  box-shadow: 0 12px 24px var(--shadow-color);
 
   &:hover:not(.coming-soon) {
     transform: translateY(-6px);
