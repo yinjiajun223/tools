@@ -1,13 +1,199 @@
-// @import './variables.scss';
 @use './variables.scss';
 
-// 全局样式
-:root {
-  --primary-color: #{$primary-color};
-  --secondary-color: #{$secondary-color};
-  --accent-color: #{$accent-color};
-  --background-color: #{$background-color};
-  --text-color: #{$text-color};
-  --card-background: #{$card-background};
-  --shadow-color: #{$shadow-color};
+// 重置默认样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// 滚动条美化
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-light;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+html,
+body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $text-primary;
+  background-color: $bg-gray;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+// 页面布局
+.page-container {
+  min-height: 100vh;
+  background-color: $bg-gray;
+  padding: $content-padding;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 0% 0%, rgba(64, 158, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(103, 194, 58, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// 卡片样式
+.el-card {
+  border: none !important;
+  border-radius: $border-radius !important;
+  box-shadow: $box-shadow-card !important;
+  background: $gradient-card !important;
+  backdrop-filter: blur(10px);
+  transition: all $transition-normal !important;
+
+  &:hover {
+    box-shadow: $box-shadow-hover !important;
+    transform: translateY(-4px);
+  }
+
+  .el-card__header {
+    padding: 16px 20px;
+    border-bottom: 1px solid $border-light;
+    font-size: 16px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .el-card__body {
+    padding: 20px;
+  }
+}
+
+// 按钮样式
+.el-button {
+  border-radius: $border-radius !important;
+  font-weight: 500;
+  transition: all $transition-fast !important;
+
+  &--primary {
+    background: $gradient-primary !important;
+    border: none !important;
+
+    &:hover,
+    &:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(64, 158, 255, 0.3) !important;
+    }
+  }
+
+  &--success {
+    background: $gradient-secondary !important;
+    border: none !important;
+
+    &:hover,
+    &:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(103, 194, 58, 0.3) !important;
+    }
+  }
+}
+
+// 表格样式
+.el-table {
+  border-radius: $border-radius;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+
+  th.el-table__cell {
+    background-color: rgba(245, 247, 250, 0.8) !important;
+    color: $text-primary;
+    font-weight: 500;
+  }
+
+  .el-table__cell {
+    color: $text-regular;
+    transition: background-color $transition-fast;
+  }
+
+  tbody tr:hover > td {
+    background-color: rgba(64, 158, 255, 0.05) !important;
+  }
+}
+
+// 上传区域样式
+.upload-area {
+  border: 2px dashed rgba($primary-color, 0.3) !important;
+  border-radius: $border-radius !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(10px);
+  transition: all $transition-normal;
+
+  &:hover {
+    border-color: $primary-color !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    transform: translateY(-2px);
+  }
+}
+
+// 动画类
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity $transition-normal;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all $transition-normal;
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+// 响应式布局辅助类
+.responsive-padding {
+  padding: $content-padding;
+
+  @media (max-width: 768px) {
+    padding: calc($content-padding / 2);
+  }
+}
+
+.responsive-margin {
+  margin: $content-padding;
+
+  @media (max-width: 768px) {
+    margin: calc($content-padding / 2);
+  }
 }

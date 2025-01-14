@@ -1,19 +1,42 @@
-// 主题色 - 清新天蓝配色
-$primary-color: #0ea5e9; // 主要蓝色
-$secondary-color: #bae6fd; // 浅蓝色
-$accent-color: #38bdf8; // 强调蓝色
+// 主题色变量
+$primary-color: #409eff; // Element Plus 默认主题蓝
+$secondary-color: #67c23a; // 成功色
+$text-primary: #333333; // 主要文字颜色
+$text-regular: #666666; // 常规文字颜色
+$text-secondary: #999999; // 次要文字颜色
 
-// 背景色 - 纯净白色系
-$background-color: #f0f9ff; // 浅蓝背景
-$card-background: #ffffff; // 纯白卡片
+// 背景色
+$bg-white: #ffffff; // 纯白背景
+$bg-gray: #f5f7fa; // 灰白背景
+$bg-light: #fafafa; // 浅灰背景
 
-// 文字颜色
-$text-color: #0f172a; // 深色文字
-$text-secondary: #64748b; // 次要文字
+// 渐变色
+$gradient-primary: linear-gradient(135deg, #409eff 0%, #36cfc9 100%);
+$gradient-secondary: linear-gradient(135deg, #67c23a 0%, #409eff 100%);
+$gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%);
 
-// 阴影 - 柔和阴影
-$shadow-color: rgba(14, 165, 233, 0.15);
+// 边框颜色
+$border-color: #e4e7ed;
+$border-light: #ebeef5;
 
-// 布局
+// 阴影
+$box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+$box-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+$box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+$box-shadow-card:
+  0 0 0 1px rgba(255, 255, 255, 0.1),
+  0 4px 16px rgba(0, 0, 0, 0.1);
+
+// 动画
+$transition-fast: 0.2s ease-out;
+$transition-normal: 0.3s ease-out;
+$transition-slow: 0.4s ease-out;
+
+// 布局相关
 $header-height: 64px;
 $sidebar-width: 200px;
+$content-padding: 24px;
+$border-radius: 12px;
+$border-radius-lg: 16px;
+
+$card-background: #008c8c;

@@ -1,271 +1,260 @@
 <template>
-  <div class="home-container">
-    <!-- 头部区域 -->
-    <div class="hero-section">
-      <h1 class="title">在线工具平台</h1>
-      <p class="subtitle">简单、高效的在线工具集合，助您提升工作效率</p>
+  <div class="home-container page-container">
+    <!-- 页面标题 -->
+    <div class="page-header">
+      <h1>在线工具平台</h1>
+      <p>简单、高效的在线工具集合，助您提升工作效率</p>
     </div>
 
-    <!-- 工具卡片区域 -->
-    <div class="tools-grid">
-      <el-card
-        v-for="tool in tools"
-        :key="tool.name"
-        class="tool-card"
-        :class="{ 'coming-soon': tool.comingSoon }"
-        shadow="hover"
-        :body-style="{ padding: '0px' }"
+    <!-- 工具卡片网格 -->
+    <el-row :gutter="24">
+      <el-col
+        v-for="(tool, index) in tools"
+        :key="tool.path"
+        :xs="24"
+        :sm="12"
+        :md="8"
+        :lg="6"
+        :style="{ animationDelay: `${index * 0.1}s` }"
+        class="tool-col"
       >
-        <router-link v-if="!tool.comingSoon" :to="tool.path" class="tool-content">
-          <div class="tool-header">
+        <router-link :to="tool.path" class="tool-card-link">
+          <el-card class="tool-card" :body-style="{ padding: '0px' }">
             <div class="tool-icon">
-              <el-icon :size="28">
-                <component :is="tool.icon" />
-              </el-icon>
+              <div class="icon-background">
+                <el-icon :size="32">
+                  <component :is="tool.icon" />
+                </el-icon>
+              </div>
             </div>
-            <h3>{{ tool.title }}</h3>
-          </div>
-          <div class="tool-body">
-            <p>{{ tool.description }}</p>
-            <div class="tool-features">
-              <span v-for="feature in tool.features" :key="feature">
-                <el-icon><Check /></el-icon>
-                {{ feature }}
-              </span>
+            <div class="tool-content">
+              <h3>{{ tool.name }}</h3>
+              <p>{{ tool.description }}</p>
             </div>
-          </div>
+            <div class="tool-footer">
+              <span class="use-now">立即使用</span>
+              <el-icon><ArrowRight /></el-icon>
+            </div>
+          </el-card>
         </router-link>
-        <div v-else class="tool-content disabled">
-          <div class="tool-header">
-            <div class="tool-icon">
-              <el-icon :size="28">
-                <component :is="tool.icon" />
-              </el-icon>
-            </div>
-            <h3>{{ tool.title }}</h3>
-          </div>
-          <div class="tool-body">
-            <p>{{ tool.description }}</p>
-            <div class="coming-soon-badge">即将推出</div>
-          </div>
-        </div>
-      </el-card>
-    </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Check } from '@element-plus/icons-vue'
-console.log('11232',11232)
-interface Tool {
-  name: string
-  path: string
-  title: string
-  description: string
-  icon: string
-  features?: string[]
-  comingSoon?: boolean
-}
+import { Document, Picture, ArrowRight } from '@element-plus/icons-vue'
 
-const tools: Tool[] = [
+const tools = [
   {
-    name: 'imageTools',
-    path: '/image-tools',
-    title: '图片压缩工具',
-    description: '快速压缩图片文件大小，支持PNG、JPG格式',
-    icon: 'Picture',
-    features: ['支持拖放', '在线预览'],
-  },
-  {
-    name: 'excelTools',
+    name: 'Excel 解析工具',
+    description: '轻松处理 Excel 文件，支持导入导出和数据预览',
     path: '/excel-tools',
-    title: 'Excel解析工具',
-    description: '解析Excel文件，支持数据处理和导出',
-    icon: 'Document',
-    features: ['支持拖放', '在线编辑'],
+    icon: Document
   },
   {
-    name: 'pdfTools',
-    path: '/pdf-tools',
-    title: 'PDF工具',
-    description: 'PDF转换、合并、分割等多功能工具',
-    icon: 'Files',
-    comingSoon: true,
-  },
-  {
-    name: 'codeFormatter',
-    path: '/code-formatter',
-    title: '代码格式化',
-    description: '支持多种编程语言的代码美化工具',
-    icon: 'Edit',
-    comingSoon: true,
-  },
+    name: '图片压缩工具',
+    description: '快速压缩图片文件，支持批量处理和自定义压缩参数',
+    path: '/image-tools',
+    icon: Picture
+  }
 ]
 </script>
 
 <style scoped lang="scss">
 .home-container {
-  padding: 40px 20px;
-  max-width: 1280px;
+  padding-top: 60px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.hero-section {
+.page-header {
   text-align: center;
   margin-bottom: 60px;
+  animation: slideDown 0.6s ease-out;
 
-  .title {
+  h1 {
     font-size: 2.5rem;
     font-weight: 600;
-    background: linear-gradient(120deg, var(--primary-color), var(--accent-color));
+    margin-bottom: 16px;
+    background: $gradient-primary;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    margin-bottom: 16px;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
   }
 
-  .subtitle {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    opacity: 0.8;
+  p {
+    font-size: 1.1rem;
+    color: $text-regular;
+    max-width: 600px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      padding: 0 20px;
+    }
   }
 }
 
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
+.tool-col {
+  animation: slideUp 0.6s ease-out both;
+}
+
+.tool-card-link {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 24px;
 }
 
 .tool-card {
-  border-radius: 12px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
-  border: none;
 
-  &:hover:not(.coming-soon) {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px var(--shadow-color);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $gradient-card;
+    opacity: 0;
+    transition: opacity $transition-normal;
   }
 
-  &.coming-soon {
-    opacity: 0.7;
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
 
-    .tool-content {
-      cursor: not-allowed;
+    .tool-footer {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.tool-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px 0 24px;
+
+  .icon-background {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: $gradient-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transform: rotate(-5deg);
+    transition: transform $transition-normal;
+
+    &:hover {
+      transform: rotate(0deg) scale(1.05);
     }
   }
 }
 
 .tool-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-
-  &.disabled {
-    pointer-events: none;
-  }
-}
-
-.tool-header {
-  padding: 24px;
-  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-
-  .tool-icon {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  padding: 0 24px;
+  text-align: center;
+  z-index: 1;
 
   h3 {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 500;
+    margin-bottom: 8px;
+    color: $text-primary;
+    font-size: 18px;
+    font-weight: 600;
   }
-}
-
-.tool-body {
-  padding: 24px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  background: var(--card-background);
 
   p {
-    margin: 0 0 20px;
-    color: var(--text-color);
-    opacity: 0.8;
-    line-height: 1.5;
+    color: $text-regular;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
   }
 }
 
-.tool-features {
-  margin-top: auto;
+.tool-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all $transition-normal;
 
-  span {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    background: var(--background-color);
-    border-radius: 20px;
-    font-size: 0.875rem;
-    color: var(--primary-color);
+  .use-now {
+    color: $primary-color;
+    font-weight: 500;
+  }
 
-    .el-icon {
-      font-size: 14px;
-    }
+  .el-icon {
+    color: $primary-color;
+    transition: transform $transition-fast;
+  }
+
+  &:hover .el-icon {
+    transform: translateX(4px);
   }
 }
 
-.coming-soon-badge {
-  align-self: center;
-  margin-top: auto;
-  padding: 8px 16px;
-  background: linear-gradient(120deg, var(--primary-color), var(--accent-color));
-  color: white;
-  border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 500;
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-// 响应式设计
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 768px) {
-  .hero-section {
-    margin-bottom: 40px;
+  .home-container {
+    padding-top: 40px;
+  }
 
-    .title {
-      font-size: 2rem;
+  .tool-card {
+    height: 200px;
+  }
+
+  .tool-icon {
+    margin: 24px 0 16px;
+
+    .icon-background {
+      width: 56px;
+      height: 56px;
     }
-
-    .subtitle {
-      font-size: 1rem;
-    }
-  }
-
-  .tools-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .tool-header {
-    padding: 20px;
-  }
-
-  .tool-body {
-    padding: 20px;
   }
 }
 </style>

@@ -1,15 +1,31 @@
 <template>
-  <el-config-provider :locale="zhCn">
-    <DefaultLayout />
-  </el-config-provider>
+  <router-view />
 </template>
 
-<script setup lang="ts">
-import { ElConfigProvider } from 'element-plus'
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
-import DefaultLayout from '@/layouts/DefaultLayout.vue'
+<style scoped lang="scss">
+.layout-container {
+  min-height: 100vh;
+}
 
-console.log('1',1)
-</script>
+.main-container {
+  margin-top: $header-height;
+  min-height: calc(100vh - #{$header-height});
 
-<style></style>
+  .el-main {
+    padding: 20px;
+    background-color: #f5f7fa;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+</style>
