@@ -8,6 +8,8 @@ import router from './router'
 // 引入样式
 import 'element-plus/dist/index.css'
 import './assets/styles/index.scss'
+// 引入 UnoCSS
+import 'uno.css'
 
 const app = createApp(App)
 

@@ -13,6 +13,11 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/home/index.vue')
       },
       {
+        path: 'oss',
+        name: 'ossUpload',
+        component: () => import('@/views/oss-upload/index.vue')
+      },
+      {
         path: 'image-tools',
         name: 'imageTools',
         component: () => import('@/components/image-tools/ImageCompressor.vue')
