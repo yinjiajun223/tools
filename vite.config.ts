@@ -8,7 +8,10 @@ import UnoCSS from 'unocss/vite'
 import { presetUno, presetAttributify, presetIcons } from 'unocss'
 
 export default defineConfig({
-  base: '/',
+  base: '/', // 确保基础路径是根路径
+  build: {
+    outDir: 'dist' // 构建输出目录
+  },
   plugins: [
     vue(),
     UnoCSS({
