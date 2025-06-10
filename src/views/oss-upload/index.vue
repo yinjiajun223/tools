@@ -508,20 +508,20 @@ onUnmounted(() => {
 
 /* 覆盖 Element Plus 的主题色 */
 :deep(.el-progress-bar__inner) {
-  background-color: theme('colors.indigo.500') !important;
+  background-color: #6366f1 !important;
 }
 
 :deep(.el-button--primary) {
-  --el-button-bg-color: theme('colors.indigo.500') !important;
-  --el-button-border-color: theme('colors.indigo.500') !important;
-  --el-button-hover-bg-color: theme('colors.indigo.600') !important;
-  --el-button-hover-border-color: theme('colors.indigo.600') !important;
+  --el-button-bg-color: #6366f1 !important;
+  --el-button-border-color: #6366f1 !important;
+  --el-button-hover-bg-color: #4f46e5 !important;
+  --el-button-hover-border-color: #4f46e5 !important;
 }
 
 :deep(.el-button--warning) {
-  --el-button-bg-color: theme('colors.amber.500') !important;
-  --el-button-border-color: theme('colors.amber.500') !important;
-  --el-button-hover-bg-color: theme('colors.amber.600') !important;
-  --el-button-hover-border-color: theme('colors.amber.600') !important;
+  --el-button-bg-color: #f59e0b !important;
+  --el-button-border-color: #f59e0b !important;
+  --el-button-hover-bg-color: #d97706 !important;
+  --el-button-hover-border-color: #d97706 !important;
 }
 </style>

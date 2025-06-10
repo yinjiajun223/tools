@@ -1,0 +1,70 @@
+# Prettier 忽略文件配置
+# 指定不需要格式化的文件和目录
+
+# 构建输出目录
+dist/
+build/
+
+# 依赖包目录
+node_modules/
+
+# 缓存目录
+.cache/
+.temp/
+
+# 日志文件
+*.log
+logs/
+
+# 环境配置文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 锁定文件
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Git 目录
+.git/
+
+# IDE 配置（保留我们的项目配置）
+.vscode/launch.json
+.vscode/tasks.json
+.idea/
+
+# 图片和媒体文件
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.webp
+
+# 字体文件
+*.woff
+*.woff2
+*.ttf
+*.eot
+
+# 压缩文件
+*.zip
+*.tar.gz
+*.rar
+
+# 自动生成的文件
+src/auto-imports.d.ts
+src/components.d.ts
+*.d.ts
+
+# 特殊配置文件（可能有特殊格式要求）
+.husky/
+commitlint.config.cjs
+
+# 文档文件（如果不需要格式化）
+*.md
+LICENSE 

@@ -18,14 +18,9 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/oss-upload/index.vue')
       },
       {
-        path: 'image-tools',
-        name: 'imageTools',
-        component: () => import('@/components/image-tools/ImageCompressor.vue')
-      },
-      {
-        path: 'excel-tools',
-        name: 'excelTools',
-        component: () => import('@/views/excel-tools/index.vue')
+        path: 'svg-tools',
+        name: 'svgTools',
+        component: () => import('@/views/svg-tools/index.vue')
       }
     ]
   },

@@ -43,27 +43,15 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowRight, Picture, Document } from '@element-plus/icons-vue'
+import { ArrowRight, PictureFilled, Upload } from '@element-plus/icons-vue'
 
 const tools = [
   {
-    name: 'Excel 解析工具',
-    description: '轻松处理 Excel 文件，支持导入导出和数据预览',
-    path: '/excel-tools',
-    icon: Document
-  },
-  {
-    name: '图片压缩工具',
-    description: '快速压缩图片文件，支持批量处理和自定义压缩参数',
-    path: '/image-tools',
-    icon: Picture
+    name: 'SVG 图片生成工具',
+    description: '在线编辑 SVG 代码，实时预览效果，支持模板库和文件导出',
+    path: '/svg-tools',
+    icon: PictureFilled
   }
-  // {
-  //   name: 'unocssTest',
-  //   description: 'unocss测试',
-  //   path: '/unocss-test',
-  //   icon: Picture
-  // },
 ]
 </script>
 
